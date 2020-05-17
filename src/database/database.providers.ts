@@ -1,0 +1,19 @@
+import { Sequelize } from 'sequelize-typescript';
+import { User } from '../users/user.entity';
+import { ConfigService } from './../shared/config/config.service';
+import { Similarity } from '../similarity/similarity.entity';
+import { Compare } from '../compare/compare.entity';
+import { Image } from '../image/image.entity';
+
+export const databaseProviders = [
+    {
+        provide: 'SEQUELIZE',
+        useFactory: async (configService: ConfigService) => {
+            const sequelize = new Sequelize(configService.sequelizeOrmConfig);
+            sequelize.addModels([User, Image, Compare, Similarity]);
+            await sequelize.sync();
+            return sequelize;
+        },
+        inject: [ConfigService],
+    },
+];
