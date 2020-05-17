@@ -3,10 +3,11 @@ import { UsersModule } from './users/users.module';
 import { SharedModule } from './shared/shared.module';
 import { ImageModule } from './image/images.module';
 import { CompareModule } from './compare/compares.module';
-import { Similarity } from './similarity/similarity.entity';
+import { AlgorithmModule } from './algorithm/algorithms.module';
+import { SimilarityModule } from './similarity/similaritys.module';
 
 @Module({
-    imports: [UsersModule, SharedModule, ImageModule, CompareModule, Similarity],
+    imports: [UsersModule, SharedModule, AlgorithmModule,ImageModule, CompareModule, SimilarityModule],
     controllers: [],
     providers: [],
 })

@@ -1,15 +1,13 @@
-import { Column, CreatedAt, DataType, DeletedAt, IsEmail, Model, Table, Unique, UpdatedAt } from 'sequelize-typescript';
+import { Column, CreatedAt, DataType, DeletedAt, IsEmail, Model, Table, Unique, UpdatedAt, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 import { Gender } from '../shared/enum/enums';
 
 @Table({
     tableName: 'user',
 })
 export class User extends Model<User> {
-    @Column({
-        type: DataType.UUID,
-        defaultValue: DataType.UUIDV4,
-        primaryKey: true,
-    })
+    @PrimaryKey
+    @AutoIncrement
+    @Column(DataType.BIGINT)
     id: string;
 
     @Unique

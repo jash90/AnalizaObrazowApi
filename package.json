@@ -1,25 +1,7 @@
 {
-    "name": "nest-sequelize-typescript",
+    "name": "analiza-api",
     "version": "0.0.1",
-    "description": "Nest + sequelize-typescript + JWT + Jest + Swagger",
-    "keywords": [
-        "nest",
-        "nestjs",
-        "nest.js",
-        "sequelize",
-        "sequelize-typescript",
-        "orm",
-        "nodejs",
-        "node.js",
-        "node",
-        "typescript",
-        "jwt",
-        "jsonwebtoken",
-        "passport",
-        "swagger",
-        "jest"
-    ],
-    "author": "Kent Loog",
+    "author": "Slawomir Frydrych",
     "license": "MIT",
     "scripts": {
         "build": "tsc -p tsconfig.build.json",

@@ -14,7 +14,6 @@ import {
     Unique,
     UpdatedAt
 } from "sequelize-typescript";
-<%= Import %>
 
 @Table({
     tableName: "algorithms"
@@ -24,11 +23,13 @@ export class Algorithm extends Model<Algorithm> {
     @AutoIncrement
     @Column(DataType.BIGINT)
     id: number;
-@Unique(true)
-@Column(DataType.TEXT)
-name: string;
-@Column(DataType.TEXT)
-parameters: string;
+
+    @Unique(true)
+    @Column(DataType.TEXT)
+    name: string;
+
+    @Column(DataType.TEXT)
+    parameters: string;
 
     @CreatedAt
     @Column({ field: "createdAt" })

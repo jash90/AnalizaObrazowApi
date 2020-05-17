@@ -14,7 +14,6 @@ import {
     Unique,
     UpdatedAt
 } from "sequelize-typescript";
-<%= Import %>
 
 @Table({
     tableName: "similaritys"
@@ -24,10 +23,12 @@ export class Similarity extends Model<Similarity> {
     @AutoIncrement
     @Column(DataType.BIGINT)
     id: number;
-@Column(DataType.BIGINT)
-imageId: number;
-@Column(DataType.BIGINT)
-secondImageId: number;
+
+    @Column(DataType.BIGINT)
+    imageId: number;
+
+    @Column(DataType.BIGINT)
+    secondImageId: number;
 
     @CreatedAt
     @Column({ field: "createdAt" })

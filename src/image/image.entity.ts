@@ -14,7 +14,6 @@ import {
     Unique,
     UpdatedAt
 } from "sequelize-typescript";
-<%= Import %>
 
 @Table({
     tableName: "images"
@@ -24,20 +23,26 @@ export class Image extends Model<Image> {
     @AutoIncrement
     @Column(DataType.BIGINT)
     id: number;
-@Unique(true)
-@Column(DataType.TEXT)
-filename: string;
-@Unique(true)
-@Column(DataType.TEXT)
-path: string;
-@Column(DataType.INTEGER)
-width: number;
-@Column(DataType.INTEGER)
-height: number;
-@Column(DataType.TEXT)
-location: string;
-@Column(DataType.TIME)
-data_create: Date;
+
+    @Unique(true)
+    @Column(DataType.TEXT)
+    filename: string;
+
+    @Unique(true)
+    @Column(DataType.TEXT)
+    path: string;
+
+    @Column(DataType.INTEGER)
+    width: number;
+
+    @Column(DataType.INTEGER)
+    height: number;
+
+    @Column(DataType.TEXT)
+    location: string;
+
+    @Column(DataType.TIME)
+    data_create: Date;
 
     @CreatedAt
     @Column({ field: "createdAt" })
