@@ -10,7 +10,7 @@ export class AlgorithmService {
     constructor(
         @Inject("AlgorithmsRepository")
         private readonly algorithmsRepository: typeof Algorithm
-    ) {}
+    ) { }
 
     async findAll(): Promise<AlgorithmDto[]> {
         const algorithms = await this.algorithmsRepository.findAll<Algorithm>({
@@ -36,9 +36,9 @@ export class AlgorithmService {
 
     async create(CreateDto: CreateAlgorithmDto): Promise<Algorithm> {
         const algorithm = new Algorithm();
-       
+
         algorithm.name = CreateDto.name;
-algorithm.parameters = CreateDto.parameters;
+        algorithm.parameters = CreateDto.parameters;
 
 
         try {
@@ -64,7 +64,7 @@ algorithm.parameters = CreateDto.parameters;
         const algorithm = await this.getAlgorithm(id);
 
         algorithm.name = UpdateDto.name || algorithm.name;
-algorithm.parameters = UpdateDto.parameters || algorithm.parameters;
+        algorithm.parameters = UpdateDto.parameters || algorithm.parameters;
 
 
         try {

@@ -7,7 +7,7 @@ import { AlgorithmModule } from './algorithm/algorithms.module';
 import { SimilarityModule } from './similarity/similaritys.module';
 
 @Module({
-    imports: [UsersModule, SharedModule, AlgorithmModule,ImageModule, CompareModule, SimilarityModule],
+    imports: [UsersModule, SharedModule, AlgorithmModule, ImageModule, CompareModule, SimilarityModule],
     controllers: [],
     providers: [],
 })

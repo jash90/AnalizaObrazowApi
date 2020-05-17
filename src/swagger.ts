@@ -5,7 +5,7 @@ export function setupSwagger(app: INestApplication) {
     const options = new DocumentBuilder()
         .setTitle('Analiza API')
         .setLicense('MIT License', 'https://opensource.org/licenses/MIT')
-        .setContactEmail('')
+        .setContactEmail('frydrychslawomir@gmail.com')
         .setDescription('API Documentation')
         .setVersion('1.1')
         .setSchemes("https", "http")
