@@ -10,7 +10,7 @@ export class ImageService {
     constructor(
         @Inject("ImagesRepository")
         private readonly imagesRepository: typeof Image
-    ) {}
+    ) { }
 
     async findAll(): Promise<ImageDto[]> {
         const images = await this.imagesRepository.findAll<Image>({
@@ -36,13 +36,13 @@ export class ImageService {
 
     async create(CreateDto: CreateImageDto): Promise<Image> {
         const image = new Image();
-       
+
         image.filename = CreateDto.filename;
-image.path = CreateDto.path;
-image.width = CreateDto.width;
-image.height = CreateDto.height;
-image.location = CreateDto.location;
-image.data_create = CreateDto.data_create;
+        image.path = CreateDto.path;
+        image.width = CreateDto.width;
+        image.height = CreateDto.height;
+        image.location = CreateDto.location;
+        image.data_create = CreateDto.data_create;
 
 
         try {
@@ -68,11 +68,11 @@ image.data_create = CreateDto.data_create;
         const image = await this.getImage(id);
 
         image.filename = UpdateDto.filename || image.filename;
-image.path = UpdateDto.path || image.path;
-image.width = UpdateDto.width || image.width;
-image.height = UpdateDto.height || image.height;
-image.location = UpdateDto.location || image.location;
-image.data_create = UpdateDto.data_create || image.data_create;
+        image.path = UpdateDto.path || image.path;
+        image.width = UpdateDto.width || image.width;
+        image.height = UpdateDto.height || image.height;
+        image.location = UpdateDto.location || image.location;
+        image.data_create = UpdateDto.data_create || image.data_create;
 
 
         try {

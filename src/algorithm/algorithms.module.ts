@@ -10,4 +10,4 @@ import { algorithmProviders } from "./algorithms.providers";
     providers: [AlgorithmService, ...algorithmProviders],
     exports: []
 })
-export class AlgorithmModule {}
+export class AlgorithmModule { }

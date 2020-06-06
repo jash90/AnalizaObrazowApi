@@ -10,4 +10,4 @@ import { similarityProviders } from "./similaritys.providers";
     providers: [SimilarityService, ...similarityProviders],
     exports: []
 })
-export class SimilarityModule {}
+export class SimilarityModule { }

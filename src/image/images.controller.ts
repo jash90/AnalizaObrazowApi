@@ -27,7 +27,7 @@ import { ImageService } from "./images.service";
 @Controller("images")
 @ApiUseTags("images")
 export class ImageController {
-    constructor(private readonly imagesService: ImageService) {}
+    constructor(private readonly imagesService: ImageService) { }
 
     @Get()
     @ApiOkResponse({ type: [ImageDto] })

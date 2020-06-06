@@ -10,4 +10,4 @@ import { compareProviders } from "./compares.providers";
     providers: [CompareService, ...compareProviders],
     exports: []
 })
-export class CompareModule {}
+export class CompareModule { }

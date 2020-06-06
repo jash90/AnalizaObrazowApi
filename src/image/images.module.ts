@@ -10,4 +10,4 @@ import { imageProviders } from "./images.providers";
     providers: [ImageService, ...imageProviders],
     exports: []
 })
-export class ImageModule {}
+export class ImageModule { }

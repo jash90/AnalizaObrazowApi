@@ -10,7 +10,7 @@ export class SimilarityService {
     constructor(
         @Inject("SimilaritysRepository")
         private readonly similaritysRepository: typeof Similarity
-    ) {}
+    ) { }
 
     async findAll(): Promise<SimilarityDto[]> {
         const similaritys = await this.similaritysRepository.findAll<Similarity>({
@@ -36,9 +36,9 @@ export class SimilarityService {
 
     async create(CreateDto: CreateSimilarityDto): Promise<Similarity> {
         const similarity = new Similarity();
-       
+
         similarity.imageId = CreateDto.imageId;
-similarity.secondImageId = CreateDto.secondImageId;
+        similarity.secondImageId = CreateDto.secondImageId;
 
 
         try {
@@ -64,7 +64,7 @@ similarity.secondImageId = CreateDto.secondImageId;
         const similarity = await this.getSimilarity(id);
 
         similarity.imageId = UpdateDto.imageId || similarity.imageId;
-similarity.secondImageId = UpdateDto.secondImageId || similarity.secondImageId;
+        similarity.secondImageId = UpdateDto.secondImageId || similarity.secondImageId;
 
 
         try {

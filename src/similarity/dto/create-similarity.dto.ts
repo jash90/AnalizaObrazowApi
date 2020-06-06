@@ -3,12 +3,12 @@ import { IsNumber } from "class-validator";
 
 export class CreateSimilarityDto {
 
-@ApiModelProperty()
-@IsNumber()
-readonly imageId: number;
+    @ApiModelProperty()
+    @IsNumber()
+    readonly imageId: number;
 
-@ApiModelProperty()
-@IsNumber()
-readonly secondImageId: number;
+    @ApiModelProperty()
+    @IsNumber()
+    readonly secondImageId: number;
 
 }

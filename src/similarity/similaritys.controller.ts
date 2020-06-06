@@ -27,7 +27,7 @@ import { SimilarityService } from "./similaritys.service";
 @Controller("similaritys")
 @ApiUseTags("similaritys")
 export class SimilarityController {
-    constructor(private readonly similaritysService: SimilarityService) {}
+    constructor(private readonly similaritysService: SimilarityService) { }
 
     @Get()
     @ApiOkResponse({ type: [SimilarityDto] })

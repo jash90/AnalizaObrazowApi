@@ -10,7 +10,7 @@ export class CompareService {
     constructor(
         @Inject("ComparesRepository")
         private readonly comparesRepository: typeof Compare
-    ) {}
+    ) { }
 
     async findAll(): Promise<CompareDto[]> {
         const compares = await this.comparesRepository.findAll<Compare>({
@@ -36,12 +36,12 @@ export class CompareService {
 
     async create(CreateDto: CreateCompareDto): Promise<Compare> {
         const compare = new Compare();
-       
+
         compare.imageId = CreateDto.imageId;
-compare.secondImageId = CreateDto.secondImageId;
-compare.similarity = CreateDto.similarity;
-compare.correct = CreateDto.correct;
-compare.versionAlgorithmId = CreateDto.versionAlgorithmId;
+        compare.secondImageId = CreateDto.secondImageId;
+        compare.similarity = CreateDto.similarity;
+        compare.correct = CreateDto.correct;
+        compare.versionAlgorithmId = CreateDto.versionAlgorithmId;
 
 
         try {
@@ -67,10 +67,10 @@ compare.versionAlgorithmId = CreateDto.versionAlgorithmId;
         const compare = await this.getCompare(id);
 
         compare.imageId = UpdateDto.imageId || compare.imageId;
-compare.secondImageId = UpdateDto.secondImageId || compare.secondImageId;
-compare.similarity = UpdateDto.similarity || compare.similarity;
-compare.correct = UpdateDto.correct || compare.correct;
-compare.versionAlgorithmId = UpdateDto.versionAlgorithmId || compare.versionAlgorithmId;
+        compare.secondImageId = UpdateDto.secondImageId || compare.secondImageId;
+        compare.similarity = UpdateDto.similarity || compare.similarity;
+        compare.correct = UpdateDto.correct || compare.correct;
+        compare.versionAlgorithmId = UpdateDto.versionAlgorithmId || compare.versionAlgorithmId;
 
 
         try {

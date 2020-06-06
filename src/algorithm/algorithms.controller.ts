@@ -27,7 +27,7 @@ import { AlgorithmService } from "./algorithms.service";
 @Controller("algorithms")
 @ApiUseTags("algorithms")
 export class AlgorithmController {
-    constructor(private readonly algorithmsService: AlgorithmService) {}
+    constructor(private readonly algorithmsService: AlgorithmService) { }
 
     @Get()
     @ApiOkResponse({ type: [AlgorithmDto] })

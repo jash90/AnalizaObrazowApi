@@ -27,7 +27,7 @@ import { CompareService } from "./compares.service";
 @Controller("compares")
 @ApiUseTags("compares")
 export class CompareController {
-    constructor(private readonly comparesService: CompareService) {}
+    constructor(private readonly comparesService: CompareService) { }
 
     @Get()
     @ApiOkResponse({ type: [CompareDto] })

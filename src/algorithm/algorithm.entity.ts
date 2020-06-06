@@ -8,6 +8,7 @@ import {
     ForeignKey,
     HasMany,
     Length,
+
     Model,
     PrimaryKey,
     Table,

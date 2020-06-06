@@ -8,7 +8,7 @@ export class UserOffset {
     readonly count: number;
 
     constructor(userOffset: UserOffset) {
-       this.rows = userOffset.rows;
-       this.count = userOffset.count;
+        this.rows = userOffset.rows;
+        this.count = userOffset.count;
     }
 }
