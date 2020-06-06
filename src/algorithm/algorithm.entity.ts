@@ -1,3 +1,4 @@
+import { Compare } from '../compare/compare.entity';
 import {
     AutoIncrement,
     BelongsTo,
@@ -31,6 +32,9 @@ export class Algorithm extends Model<Algorithm> {
 
     @Column(DataType.TEXT)
     parameters: string;
+
+    @HasMany(() => Compare)
+    compares: Compare[];
 
     @CreatedAt
     @Column({ field: "createdAt" })

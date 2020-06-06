@@ -1,3 +1,5 @@
+import { Algorithm } from '../algorithm/algorithm.entity';
+import { Image } from '../image/image.entity';
 import {
     AutoIncrement,
     BelongsTo,
@@ -24,11 +26,19 @@ export class Compare extends Model<Compare> {
     @Column(DataType.BIGINT)
     id: number;
 
-    @Column(DataType.BIGINT)
+    @ForeignKey(() => Image)
+    @Column({ type: DataType.BIGINT })
     imageId: number;
 
-    @Column(DataType.BIGINT)
+    @BelongsTo(() => Image)
+    image: Image;
+
+    @ForeignKey(() => Image)
+    @Column({ type: DataType.BIGINT })
     secondImageId: number;
+
+    @BelongsTo(() => Image)
+    secondImage: Image;
 
     @Column(DataType.SMALLINT)
     similarity: number;
@@ -36,8 +46,12 @@ export class Compare extends Model<Compare> {
     @Column(DataType.BOOLEAN)
     correct: boolean;
 
-    @Column(DataType.BIGINT)
+    @ForeignKey(() => Algorithm)
+    @Column({ type: DataType.BIGINT })
     versionAlgorithmId: number;
+
+    @BelongsTo(() => Algorithm)
+    algoritm: Algorithm;
 
     @CreatedAt
     @Column({ field: "createdAt" })

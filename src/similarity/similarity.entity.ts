@@ -15,6 +15,8 @@ import {
     UpdatedAt
 } from "sequelize-typescript";
 
+import { Image } from '../image/image.entity';
+
 @Table({
     tableName: "similaritys"
 })
@@ -24,11 +26,19 @@ export class Similarity extends Model<Similarity> {
     @Column(DataType.BIGINT)
     id: number;
 
-    @Column(DataType.BIGINT)
+    @ForeignKey(() => Image)
+    @Column({ type: DataType.BIGINT })
     imageId: number;
 
-    @Column(DataType.BIGINT)
+    @BelongsTo(() => Image)
+    image: Image;
+
+    @ForeignKey(() => Image)
+    @Column({ type: DataType.BIGINT })
     secondImageId: number;
+
+    @BelongsTo(() => Image)
+    secondImage: Image;
 
     @CreatedAt
     @Column({ field: "createdAt" })
