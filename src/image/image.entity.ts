@@ -47,11 +47,11 @@ export class Image extends Model<Image> {
     @Column(DataType.TIME)
     data_create: Date;
 
-    @HasMany(()=>Compare)
-    compares:Compare[];
+    @HasMany(() => Compare)
+    compares: Compare[];
 
-    @HasMany(()=>Similarity)
-    similaritys:Similarity[];
+    @HasMany(() => Similarity)
+    similaritys: Similarity[];
 
     @CreatedAt
     @Column({ field: "createdAt" })
