@@ -30,7 +30,7 @@
         "@types/jsonwebtoken": "^8.3.2",
         "@types/passport-jwt": "^3.0.1",
         "bcrypt": "^3.0.6",
-        "class-transformer": "^0.2.0",
+        "class-transformer": "^0.3.1",
         "class-validator": "^0.9.1",
         "js-joda": "^1.11.0",
         "jsonwebtoken": "^8.5.1",
