@@ -1,10 +1,11 @@
+import db from './db.json';
 export const config = {
     database: {
         dialect: 'postgres',
-        host: process.env.DATABASE_HOST,
-        port: process.env.DATABASE_PORT,
-        username: process.env.DATABASE_USER,
-        password: process.env.DATABASE_PASSWORD,
+        host: db.host,
+        port: db.port,
+        username: db.user,
+        password: db.pass,
         database: 'analiza',
         logging: false,
     },
