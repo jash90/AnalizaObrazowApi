@@ -44,8 +44,6 @@ export class CompareController {
 
     @Post()
     @ApiCreatedResponse({ type: Compare })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     create(@Body() createDto: CreateCompareDto): Promise<Compare> {
         return this.comparesService.create(createDto);
     }
@@ -53,8 +51,6 @@ export class CompareController {
     @Put(":id")
     @ApiOkResponse({ type: Compare })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     update(
         @Param("id", new ParseIntPipe()) id: number,
         @Body() UpdateDto: UpdateCompareDto
@@ -65,8 +61,6 @@ export class CompareController {
     @Delete(":id")
     @ApiOkResponse({ type: Compare })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     delete(@Param("id", new ParseIntPipe()) id: number): Promise<Compare> {
         return this.comparesService.delete(id);
     }

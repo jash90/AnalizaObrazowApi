@@ -44,8 +44,6 @@ export class SimilarityController {
 
     @Post()
     @ApiCreatedResponse({ type: Similarity })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     create(@Body() createDto: CreateSimilarityDto): Promise<Similarity> {
         return this.similaritysService.create(createDto);
     }
@@ -53,8 +51,6 @@ export class SimilarityController {
     @Put(":id")
     @ApiOkResponse({ type: Similarity })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     update(
         @Param("id", new ParseIntPipe()) id: number,
         @Body() UpdateDto: UpdateSimilarityDto
@@ -65,8 +61,6 @@ export class SimilarityController {
     @Delete(":id")
     @ApiOkResponse({ type: Similarity })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     delete(@Param("id", new ParseIntPipe()) id: number): Promise<Similarity> {
         return this.similaritysService.delete(id);
     }

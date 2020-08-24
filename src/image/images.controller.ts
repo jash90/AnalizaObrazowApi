@@ -44,8 +44,6 @@ export class ImageController {
 
     @Post()
     @ApiCreatedResponse({ type: Image })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     create(@Body() createDto: CreateImageDto): Promise<Image> {
         return this.imagesService.create(createDto);
     }
@@ -53,8 +51,6 @@ export class ImageController {
     @Put(":id")
     @ApiOkResponse({ type: Image })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     update(
         @Param("id", new ParseIntPipe()) id: number,
         @Body() UpdateDto: UpdateImageDto
@@ -65,8 +61,6 @@ export class ImageController {
     @Delete(":id")
     @ApiOkResponse({ type: Image })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     delete(@Param("id", new ParseIntPipe()) id: number): Promise<Image> {
         return this.imagesService.delete(id);
     }

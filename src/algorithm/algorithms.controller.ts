@@ -44,8 +44,6 @@ export class AlgorithmController {
 
     @Post()
     @ApiCreatedResponse({ type: Algorithm })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     create(@Body() createDto: CreateAlgorithmDto): Promise<Algorithm> {
         return this.algorithmsService.create(createDto);
     }
@@ -53,8 +51,6 @@ export class AlgorithmController {
     @Put(":id")
     @ApiOkResponse({ type: Algorithm })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     update(
         @Param("id", new ParseIntPipe()) id: number,
         @Body() UpdateDto: UpdateAlgorithmDto
@@ -65,8 +61,6 @@ export class AlgorithmController {
     @Delete(":id")
     @ApiOkResponse({ type: Algorithm })
     @ApiImplicitParam({ name: "id", required: true })
-    @ApiBearerAuth()
-    @UseGuards(AuthGuard("jwt"))
     delete(@Param("id", new ParseIntPipe()) id: number): Promise<Algorithm> {
         return this.algorithmsService.delete(id);
     }
