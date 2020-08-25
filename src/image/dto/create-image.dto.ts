@@ -1,5 +1,5 @@
 import { ApiModelProperty } from "@nestjs/swagger";
-import { IsString, IsNumber, IsDateString } from "class-validator";
+import { IsString, IsNumber, IsDate } from "class-validator";
 
 export class CreateImageDto {
 
@@ -24,7 +24,7 @@ export class CreateImageDto {
     readonly location: string;
 
     @ApiModelProperty()
-    @IsDateString()
+    @IsDate()
     readonly date_created: Date;
 
 }
