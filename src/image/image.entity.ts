@@ -44,14 +44,14 @@ export class Image extends Model<Image> {
     @Column(DataType.TEXT)
     location: string;
 
-    @Column(DataType.TIME)
-    data_create: Date;
+    @Column(DataType.DATE)
+    date_created: Date;
 
     @HasMany(() => Compare)
     compares: Compare[];
 
     @HasMany(() => Similarity)
-    similaritys: Similarity[];
+    similarities: Similarity[];
 
     @CreatedAt
     @Column({ field: "createdAt" })
