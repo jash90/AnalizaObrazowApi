@@ -42,7 +42,7 @@ export class ImageService {
         image.width = CreateDto.width;
         image.height = CreateDto.height;
         image.location = CreateDto.location;
-        image.data_create = CreateDto.data_create;
+        image.date_created = CreateDto.date_created;
 
 
         try {
@@ -72,7 +72,7 @@ export class ImageService {
         image.width = UpdateDto.width || image.width;
         image.height = UpdateDto.height || image.height;
         image.location = UpdateDto.location || image.location;
-        image.data_create = UpdateDto.data_create || image.data_create;
+        image.date_created = UpdateDto.date_created || image.date_created;
 
 
         try {

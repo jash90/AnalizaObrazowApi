@@ -31,6 +31,6 @@ export class UpdateImageDto {
     @ApiModelProperty()
     @IsDate()
     @IsOptional()
-    readonly data_create?: Date;
+    readonly date_created?: Date;
 
 }

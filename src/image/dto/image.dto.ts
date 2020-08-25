@@ -19,7 +19,7 @@ export class ImageDto {
     readonly location: string;
 
     @ApiModelProperty()
-    readonly data_create: Date;
+    readonly date_created: Date;
 
 
     constructor(image: Image) {
@@ -28,7 +28,7 @@ export class ImageDto {
         this.width = image.width;
         this.height = image.height;
         this.location = image.location;
-        this.data_create = image.data_create;
+        this.date_created = image.date_created;
 
     }
 }

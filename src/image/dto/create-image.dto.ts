@@ -25,6 +25,6 @@ export class CreateImageDto {
 
     @ApiModelProperty()
     @IsDate()
-    readonly data_create: Date;
+    readonly date_created: Date;
 
 }
