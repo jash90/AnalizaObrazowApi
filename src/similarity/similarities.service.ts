@@ -46,7 +46,7 @@ export class SimilarityService {
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
 
-        if (similarities1.length> 0) {
+        if (similarities1.length > 0) {
             throw new HttpException("This similarity exists!", HttpStatus.CONFLICT);
         }
 
@@ -56,7 +56,7 @@ export class SimilarityService {
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
 
-        if (similarities2.length> 0) {
+        if (similarities2.length > 0) {
             throw new HttpException("This similarity exists!", HttpStatus.CONFLICT);
         }
 
