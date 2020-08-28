@@ -17,9 +17,7 @@ export class AlgorithmService {
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
-        return algorithms.map(algorithm => {
-            return new AlgorithmDto(algorithm);
-        });
+        return algorithms;
     }
 
     async findOne(id: number): Promise<AlgorithmDto> {

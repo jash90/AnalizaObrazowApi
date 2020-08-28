@@ -43,10 +43,10 @@ export class CompareService {
         compare.correct = CreateDto.correct;
         compare.versionAlgorithmId = CreateDto.versionAlgorithmId;
 
-
         try {
             return await compare.save();
         } catch (err) {
+            console.log(err);
             throw new HttpException(err, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

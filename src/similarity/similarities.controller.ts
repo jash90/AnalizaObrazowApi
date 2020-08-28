@@ -22,30 +22,30 @@ import { CreateSimilarityDto } from "./dto/create-similarity.dto";
 import { UpdateSimilarityDto } from "./dto/update-similarity.dto";
 import { SimilarityOffset } from "./dto/similarity.offset";
 import { Similarity } from "./similarity.entity";
-import { SimilarityService } from "./similaritys.service";
+import { SimilarityService } from "./similarities.service";
 
-@Controller("similaritys")
-@ApiUseTags("similaritys")
+@Controller("similarities")
+@ApiUseTags("similarities")
 export class SimilarityController {
-    constructor(private readonly similaritysService: SimilarityService) { }
+    constructor(private readonly similaritiesService: SimilarityService) { }
 
     @Get()
     @ApiOkResponse({ type: [SimilarityDto] })
     findAll(): Promise<SimilarityDto[]> {
-        return this.similaritysService.findAll();
+        return this.similaritiesService.findAll();
     }
 
     @Get(":id")
     @ApiOkResponse({ type: SimilarityDto })
     @ApiImplicitParam({ name: "id", required: true })
     findOne(@Param("id", new ParseIntPipe()) id: number): Promise<SimilarityDto> {
-        return this.similaritysService.findOne(id);
+        return this.similaritiesService.findOne(id);
     }
 
     @Post()
     @ApiCreatedResponse({ type: Similarity })
     create(@Body() createDto: CreateSimilarityDto): Promise<Similarity> {
-        return this.similaritysService.create(createDto);
+        return this.similaritiesService.create(createDto);
     }
 
     @Put(":id")
@@ -55,14 +55,14 @@ export class SimilarityController {
         @Param("id", new ParseIntPipe()) id: number,
         @Body() UpdateDto: UpdateSimilarityDto
     ): Promise<Similarity> {
-        return this.similaritysService.update(id, UpdateDto);
+        return this.similaritiesService.update(id, UpdateDto);
     }
 
     @Delete(":id")
     @ApiOkResponse({ type: Similarity })
     @ApiImplicitParam({ name: "id", required: true })
     delete(@Param("id", new ParseIntPipe()) id: number): Promise<Similarity> {
-        return this.similaritysService.delete(id);
+        return this.similaritiesService.delete(id);
     }
 
     @Get("offset/:id")
@@ -70,6 +70,6 @@ export class SimilarityController {
     offset(
         @Param("id", new ParseIntPipe()) index: number = 0
     ): Promise<SimilarityOffset> {
-        return this.similaritysService.offset(index);
+        return this.similaritiesService.offset(index);
     }
 }

@@ -18,7 +18,7 @@ import {
 import { Image } from '../image/image.entity';
 
 @Table({
-    tableName: "similaritys"
+    tableName: "similarities"
 })
 export class Similarity extends Model<Similarity> {
     @PrimaryKey

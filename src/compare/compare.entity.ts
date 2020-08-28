@@ -40,7 +40,7 @@ export class Compare extends Model<Compare> {
     @BelongsTo(() => Image)
     secondImage: Image;
 
-    @Column(DataType.SMALLINT)
+    @Column(DataType.DECIMAL)
     similarity: number;
 
     @Column(DataType.BOOLEAN)
@@ -51,7 +51,7 @@ export class Compare extends Model<Compare> {
     versionAlgorithmId: number;
 
     @BelongsTo(() => Algorithm)
-    algoritm: Algorithm;
+    algorithm: Algorithm;
 
     @CreatedAt
     @Column({ field: "createdAt" })

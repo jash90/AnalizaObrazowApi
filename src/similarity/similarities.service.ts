@@ -1,29 +1,29 @@
 import { HttpException, HttpStatus, Inject, Injectable } from "@nestjs/common";
-import { Similarity } from "../similarity/similarity.entity";
-import { SimilarityDto } from "../similarity/dto/similarity.dto";
-import { CreateSimilarityDto } from "../similarity/dto/create-similarity.dto";
-import { UpdateSimilarityDto } from "../similarity/dto/update-similarity.dto";
-import { SimilarityOffset } from "../similarity/dto/similarity.offset";
+import { Similarity } from "./similarity.entity";
+import { SimilarityDto } from "./dto/similarity.dto";
+import { CreateSimilarityDto } from "./dto/create-similarity.dto";
+import { UpdateSimilarityDto } from "./dto/update-similarity.dto";
+import { SimilarityOffset } from "./dto/similarity.offset";
 
 @Injectable()
 export class SimilarityService {
     constructor(
-        @Inject("SimilaritysRepository")
-        private readonly similaritysRepository: typeof Similarity
+        @Inject("SimilaritiesRepository")
+        private readonly similaritiesRepository: typeof Similarity
     ) { }
 
     async findAll(): Promise<SimilarityDto[]> {
-        const similaritys = await this.similaritysRepository.findAll<Similarity>({
+        const similarities = await this.similaritiesRepository.findAll<Similarity>({
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
-        return similaritys.map(similarity => {
+        return similarities.map(similarity => {
             return new SimilarityDto(similarity);
         });
     }
 
     async findOne(id: number): Promise<SimilarityDto> {
-        const similarity = await this.similaritysRepository.findByPk<Similarity>(id, {
+        const similarity = await this.similaritiesRepository.findByPk<Similarity>(id, {
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
@@ -40,7 +40,7 @@ export class SimilarityService {
         similarity.imageId = CreateDto.imageId;
         similarity.secondImageId = CreateDto.secondImageId;
 
-        const similarities1 = await this.similaritysRepository.findAll<Similarity>({
+        const similarities1 = await this.similaritiesRepository.findAll<Similarity>({
             where: { imageId: similarity.imageId, secondImageId: similarity.secondImageId },
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
@@ -50,7 +50,7 @@ export class SimilarityService {
             throw new HttpException("This similarity exists!", HttpStatus.CONFLICT);
         }
 
-        const similarities2 = await this.similaritysRepository.findAll<Similarity>({
+        const similarities2 = await this.similaritiesRepository.findAll<Similarity>({
             where: { imageId: similarity.secondImageId, secondImageId: similarity.imageId },
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
@@ -69,7 +69,7 @@ export class SimilarityService {
     }
 
     private async getSimilarity(id: number): Promise<Similarity> {
-        const similarity = await this.similaritysRepository.findByPk<Similarity>(id, {
+        const similarity = await this.similaritiesRepository.findByPk<Similarity>(id, {
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
@@ -101,7 +101,7 @@ export class SimilarityService {
     }
 
     async offset(index: number = 0): Promise<SimilarityOffset> {
-        const similaritys = await this.similaritysRepository.findAndCountAll({
+        const similarities = await this.similaritiesRepository.findAndCountAll({
             include: [],
             limit: 100,
             offset: index * 100,
@@ -109,7 +109,7 @@ export class SimilarityService {
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
 
-        const SimilarityDto = similaritys.rows.map(privilege => {
+        const SimilarityDto = similarities.rows.map(privilege => {
             return new SimilarityDto(privilege);
         });
 

@@ -17,9 +17,7 @@ export class ImageService {
             include: [],
             attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
         });
-        return images.map(image => {
-            return new ImageDto(image);
-        });
+        return images
     }
 
     async findOne(id: number): Promise<ImageDto> {
