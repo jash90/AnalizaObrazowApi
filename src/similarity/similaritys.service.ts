@@ -40,6 +40,26 @@ export class SimilarityService {
         similarity.imageId = CreateDto.imageId;
         similarity.secondImageId = CreateDto.secondImageId;
 
+        const similarities1 = await this.similaritysRepository.findAll<Similarity>({
+            where: { imageId: similarity.imageId, secondImageId: similarity.secondImageId },
+            include: [],
+            attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
+        });
+
+        if (similarities1.length> 0) {
+            throw new HttpException("This similarity exists!", HttpStatus.CONFLICT);
+        }
+
+        const similarities2 = await this.similaritysRepository.findAll<Similarity>({
+            where: { imageId: similarity.secondImageId, secondImageId: similarity.imageId },
+            include: [],
+            attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
+        });
+
+        if (similarities2.length> 0) {
+            throw new HttpException("This similarity exists!", HttpStatus.CONFLICT);
+        }
+
 
         try {
             return await similarity.save();

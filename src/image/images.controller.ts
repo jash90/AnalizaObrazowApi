@@ -7,7 +7,7 @@ import {
     ParseIntPipe,
     Post,
     Put,
-    UseGuards
+    UseGuards, 
 } from "@nestjs/common";
 import {
     ApiBearerAuth,
@@ -40,6 +40,13 @@ export class ImageController {
     @ApiImplicitParam({ name: "id", required: true })
     findOne(@Param("id", new ParseIntPipe()) id: number): Promise<ImageDto> {
         return this.imagesService.findOne(id);
+    }
+
+    @Get("filename/:filename")
+    @ApiOkResponse({ type: ImageDto })
+    @ApiImplicitParam({ name: "filename", required: true })
+    findByFilename(@Param("filename") filename: string): Promise<ImageDto> {
+        return this.imagesService.findByFilename(filename);
     }
 
     @Post()

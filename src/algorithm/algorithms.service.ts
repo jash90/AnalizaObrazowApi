@@ -40,6 +40,16 @@ export class AlgorithmService {
         algorithm.name = CreateDto.name;
         algorithm.parameters = CreateDto.parameters;
 
+        const algorithmDatabase = await this.algorithmsRepository.findOne<Algorithm>({
+            where: { name: algorithm.name, parameters: algorithm.parameters },
+            include: [],
+            attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
+        });
+
+        if (algorithmDatabase) {
+            throw new HttpException("This algorytm exists!", HttpStatus.CONFLICT);
+        }
+
 
         try {
             return await algorithm.save();

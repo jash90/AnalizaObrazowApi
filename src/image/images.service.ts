@@ -34,6 +34,19 @@ export class ImageService {
         return new ImageDto(image);
     }
 
+    async findByFilename(filename: string): Promise<ImageDto> {
+        const image = await this.imagesRepository.findOne<Image>({
+            where: {filename},
+            include: [],
+            attributes: { exclude: ["createdAt", "updatedAt", "deletedAt"] }
+        });
+        if (!image) {
+            throw new HttpException("No image found", HttpStatus.NOT_FOUND);
+        }
+
+        return image;
+    }
+
     async create(CreateDto: CreateImageDto): Promise<Image> {
         const image = new Image();
 
