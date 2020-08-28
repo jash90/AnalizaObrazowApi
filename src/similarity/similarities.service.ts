@@ -8,7 +8,7 @@ import { SimilarityOffset } from "./dto/similarity.offset";
 @Injectable()
 export class SimilarityService {
     constructor(
-        @Inject("SimilaritiesRepository")
+        @Inject("similaritiesRepository")
         private readonly similaritiesRepository: typeof Similarity
     ) { }
 
