@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { ConfigService } from './../shared/config/config.service';
-import { Similarity } from '../similarity/similarity.entity';
+import { Similarity } from '../similarities/similarity.entity';
 import { Compare } from '../compare/compare.entity';
 import { Image } from '../image/image.entity';
 import { Algorithm } from '../algorithm/algorithm.entity';

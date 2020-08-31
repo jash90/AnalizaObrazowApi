@@ -1,5 +1,5 @@
 import { Compare } from '../compare/compare.entity';
-import { Similarity } from '../similarity/similarity.entity';
+import { Similarity } from '../similarities/similarity.entity';
 
 import {
     AutoIncrement,
