@@ -7,7 +7,7 @@ export const config = {
         username: db.user,
         password: db.pass,
         database: 'analiza',
-        logging: false,
+        logging: true,
     },
     jwtPrivateKey: process.env.JWT_PRIVATE_KEY,
 };

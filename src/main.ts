@@ -9,9 +9,7 @@ async function bootstrap() {
     app.useGlobalPipes(new ValidationPipe());
     app.enableCors();
     setupSwagger(app);
-
     await app.listen(3091);
-    console.log(config);
 }
 
 bootstrap();
